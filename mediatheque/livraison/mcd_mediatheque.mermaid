@@ -1,0 +1,69 @@
+erDiagram
+    UTILISATEUR ||--o| ADHERENT : "1,1 --- 0,1"
+    ADHERENT ||--o{ EMPRUNT : "1,1 --- 0,N"
+    DOCUMENT ||--o{ EMPRUNT : "1,1 --- 0,N"
+    DOCUMENT ||--o| LIVRE : "specialisation"
+    DOCUMENT ||--o| CD : "specialisation"
+    DOCUMENT ||--o| DVD : "specialisation"
+
+    UTILISATEUR {
+        int id_utilisateur
+        string login
+        string password
+        string role
+        datetime date_creation
+        boolean actif
+    }
+
+    ADHERENT {
+        int id_adherent
+        string nom
+        string prenom
+        string email
+        string telephone
+        string adresse
+        string code_postal
+        string ville
+        date date_inscription
+        date date_naissance
+        boolean actif
+    }
+
+    DOCUMENT {
+        int id_document
+        string titre
+        string auteur
+        string type_document
+        int annee_publication
+        string isbn
+        boolean disponible
+        datetime date_ajout
+    }
+
+    LIVRE {
+        string editeur
+        int nombre_pages
+        string genre
+    }
+
+    CD {
+        string artiste
+        int duree
+        string label
+        int nombre_pistes
+    }
+
+    DVD {
+        string realisateur
+        int duree
+        string genre
+        string langue
+    }
+
+    EMPRUNT {
+        int id_emprunt
+        date date_emprunt
+        date date_retour_prevue
+        date date_retour_effective
+        string statut
+    }
